@@ -21,7 +21,7 @@ I would appreciate feedback on:
 To run the simulation and calculate the muon ratio, simply run the Generator.py script. The script will generate a plot showing the histogram of the decay time distribution and display the estimated rate parameter and the ratio of positive and negative muons.
 
 ```
-python Generator.py
+python Muon.py
 ```
 
 ## Dependencies
