@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 from Random import Random
-from CosmicRays import CosmicRays
 
 #################################
 # Decay Class
@@ -42,19 +41,35 @@ class Decay():
         print(m)
         self.Update_Distribution(m)
 
-    def Time(self):
+    def Time(self, meas):
         life_n = []
         life_p = []
         
         for i in range(self.muon_n):
-            t1 = self.rand.Exponential(self.time_n)
-            life_n.append(t1)
+            k = []
+            for j in range(meas):
+                t1 = self.rand.Exponential(self.time_n)
+                k.append(t1)
+
+            life_n.append(k)
 
         for _ in range(self.muon_p):
-            t2= self.rand.Exponential(self.time_p)
-            life_p.append(t2)
+            k = []
+            for j in range(meas):
+                t2= self.rand.Exponential(self.time_p)
+                k.append(t2)
+            life_p.append(k)
 
         lifetimes = life_n + life_p
 
+        return life_n, life_p, lifetimes
+
+    def Time_Sim(self):
+        
+        t1 = self.rand.Exponential(self.time_n)
+        
+
+        t2= self.rand.Exponential(self.time_p)
+        
         return life_n, life_p, lifetimes
 
